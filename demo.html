@@ -1,0 +1,91 @@
+<!--
+Hi! This project is open-source - see https://github.com/Smittyvb/roadsides-www
+This is just what a page looks like after a browser processes it - most of was made using "Save Page".
+-->
+<!DOCTYPE html>
+<!-- saved from url=(0026)/airdrie -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Roadside Attractions</title>
+    <script src="./demo_files/jquery-2.2.3.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="./demo_files/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="./demo_files/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="./demo_files/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./demo_files/main.css">
+    <script src="./demo_files/handlebars.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="./demo_files/header.png" alt="Roadside Attractions" class="" id="header">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="main"><a href="/">Home</a></li>
+              <li id="contact"><a href="mailto:roadsides@roadsideattrations.ca">Send Pictures</a></li>
+              <li id="founder"><a href="http://blog.roadsideattractions.ca/2016/05/22/our-founder/">Our Founder</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="col-sm-3 col-md-2 sidebar">
+      <li><a href="/province">By Province</a></li>
+      <li><a href="/alberta">Alberta</a></li>
+      <li><a href="/bc">British Columbia</a></li>
+      <li><a href="/manitoba">Manitoba</a></li>
+      <li><a href="/newbrunswick">New Brunswick</a></li>
+      <li><a href="/nfld">Newfoundland and Labrador</a></li>
+      <li><a href="/nwt">Northwest Territories</a></li>
+      <li><a href="/novascotia">Nova Scotia</a></li>
+      <li><a href="/nunavut">Nunavut</a></li>
+      <li><a href="/ontario">Ontario</a></li>
+      <li><a href="/pei">Prince Edward Island</a></li>
+      <li><a href="/quebec">Quebec</a></li>
+      <li><a href="/sask">Saskatchewan</a></li>
+      <li><a href="/yukon">Yukon</a></li>
+      <br>
+      <li><a href="/alphabet">Alphabetical</a></li>
+      <li><a href="/type">By Type</a></li>
+      <li><a href="http://blog.roadsideattractions.ca/2016/05/22/our-founder/">Our Founder</a></li>
+      <br>
+      <li><a href="/pop">Planes On Pedestals</a></li>
+    </div>
+    <!--roadside template-->
+    <script id="roadside-template" type="text/x-handlebars-template">
+      <img src="images/{{url}}.jpg" alt="{{name}}" />
+      <br />
+      {{name}}
+      <br />
+      {{#if description}}
+      {{description}}
+      <br />
+      {{/if}}
+      Location: {{city}}, {{province}}{{#if location}} - {{location}}{{/if}}{{#if gps}} - <a href="https://www.google.ca/maps/@{{gps}},16z">Google Maps</a>{{/if}}
+      <br />
+      {{#if credit}}Credit: {{{credit}}}{{/if}}
+    </script>
+    <article id="mainContent" class="text-center">
+      <img src="./demo_files/airdrie.jpg" alt="Cowboy">
+      <br>
+      Cowboy
+      <br>
+      Location: Airdrie, Alberta - <a href="https://www.google.ca/maps/@51.29442,-113.99907,16z">Google Maps</a>
+      <br>
+      Credit: <a href="http://localhost/grb@nbnet.nb.ca">Gary Boole</a>
+    </article>
+
+
+</body></html>
