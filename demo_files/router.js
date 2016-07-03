@@ -1,18 +1,12 @@
 var Roadsides = window.Roadsides || {};
-Roadsides.API_LOC = "http://localhost:3000/"; //set to location of API server
-Roadsides.PROVINCE_MAPPING = {
-  "alberta": "Alberta",
-  "bc": "British Columbia",
-  "manitoba": "Manitoba",
-  "newbrunswick": "New Brunswick",
-};
+Roadsides.API_LOC = "//" + window.location.hostname + ":8081/"; //set to location of API server
 window.onload = function() {
   Roadsides.ROADSIDE_TEMPLATE = Handlebars.compile(document.getElementById("roadside-template").innerHTML);
   Roadsides.Router = {
     update: function() {
       setTimeout(function () {
         if (location.hash === "") {
-          location.hash = "#/main";
+          //location.hash = "#/main";
         }
         Roadsides.Router.loadPage(location.hash);
       }, 0);
@@ -61,16 +55,28 @@ window.onload = function() {
         document.getElementById(location.hash.replace(/[^a-zA-Z ]/g, "")).className += "active";
       } catch (e) {}
 
-    }
+    },
   };
   Roadsides.Router.highlightActive();
   if (window.onpopstate !== null) {
     var allLinks = document.getElementsByTagName("a");
-    for (i = 0; i < allLinks.length; i++) {
+    for (var i = 0; i < allLinks.length; i++) {
       allLinks[i].addEventListener("click", Roadsides.Router.update);
     }
   } else {
     window.onpopstate = Roadsides.Router.update;
   }
+  var dropdownlinks = document.getElementsByClassName("dropdownlinks");
+  for (i = 0; i < dropdownlinks.length; i++) {
+      dropdownlinks[i].addEventListener("change", function (e) {
+      var selected = e.target.value;
+      if ((location.hash.replace("/", "") === selected) || (selected === "none")) {
+        return;
+      }
+      location = "/" + selected;
+      Roadsides.Router.update();
+    });
+  }
+  document.getElementById("province")
   Roadsides.Router.update();
 };
