@@ -4,7 +4,14 @@
 
 .navbar-nav>li {
   margin-left: 5%;
+}
+
+sidebar>ul>li {
   margin-top: 1em;
+}
+
+sidebar>ul:first-child {
+  margin-top: 4em;
 }
 
 .navbar-nav {
